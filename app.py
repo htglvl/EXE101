@@ -8,6 +8,9 @@ from zipfile import ZipFile
 app = Flask(__name__)
 
 # This is the path to the upload directory
+if not os.path.exists("uploads"):
+    os.makedirs("uploads")
+
 app.config['UPLOAD_FOLDER'] = 'uploads/'
 # These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
